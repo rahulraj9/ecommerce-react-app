@@ -9,7 +9,7 @@ export default function NavBar(){
      <nav className="navbar">
       <ul className="nav-list">
         <li className="nav-item"><a href="/" className="nav-link">eCommerce</a></li>
-        <li className="nav-item"><a href="/products" className="nav-link">Products</a></li>
+        <li className="nav-item"><a href="/pro" className="nav-link">Products</a></li>
         <li className="nav-item"><a href="/newProducts" className="nav-link">Add d a Product
         <AddIcon/>
         </a></li>

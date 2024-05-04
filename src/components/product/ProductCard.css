@@ -1,0 +1,38 @@
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: #fff;
+  display: flex
+}
+
+.product-image {
+  width: 150px; 
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-details {
+  flex-grow: 1; 
+  margin-left: 16px
+}
+
+.product-details input {
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.product-actions {
+  margin-top: auto;
+  display: flex;
+}
+
+.product-actions button {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.product-actions button:last-child {
+  margin-right: 0;
+}
