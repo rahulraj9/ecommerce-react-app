@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
-import mockProducts from "./mockPorduct";
 
 
 export default function ProductList(){
