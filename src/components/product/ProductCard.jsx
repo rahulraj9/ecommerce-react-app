@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import './ProductCard.css'
-export default function ProductCard({ product }){
+export default function ProductCard({ product,onUpdate, onDelete }){
   const [isEditing, setIsEditing] = useState(false);
   const [editedProduct, setEditedProduct] = useState({ ...product });
 
@@ -15,10 +17,32 @@ export default function ProductCard({ product }){
 
   const handleSave = () => {
     console.log("Edited Product:", editedProduct);
-    setIsEditing(false);
+    fetch(`http://localhost:3001/products/${editedProduct.id}`,{
+      method:'PUT',
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify(editedProduct)
+      
+    })
+    .then(response=>{
+      onUpdate(editedProduct);
+      setIsEditing(false);
+    }).catch(err=>{
+      console.log(err)
+    })
   };
 
   const handleDelete = () => {
+    fetch(`http://localhost:3001/products/${product.id}`,{
+      method:'DELETE'
+    })
+    .then(resp=>{
+      onDelete(product.id)
+    })
+    .catch(err=>{
+      console.log(err)
+    })
 
     console.log("Deleted Product ID:", product.id);
   };
@@ -39,8 +63,8 @@ export default function ProductCard({ product }){
         </div>
       )}
       <div className="product-actions">
-        <button onClick={handleEdit}>Edit</button>
-        <button onClick={handleDelete}>Delete</button>
+        <button onClick={handleEdit}><EditIcon/></button>
+        <button onClick={handleDelete}><DeleteIcon/></button>
       </div>
     </div>
   )
