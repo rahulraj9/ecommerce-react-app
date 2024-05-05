@@ -13,10 +13,23 @@ export default function ProductList(){
     .catch(error => console.error('Error fetching products:', error));
   },[])
 
+  const handleUpdateProduct = (updatedProduct) => {
+    setProducts((prevProducts) =>
+      prevProducts.map((product) =>
+        product.id === updatedProduct.id ? updatedProduct : product
+      )
+    );
+  };
+  const handleDelete = (deletedProductId) =>{
+    setProducts((prevProducts) =>
+      prevProducts.filter((product) => product.id !== deletedProductId)
+    );
+  }
+
   return (
     <div>
       {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <ProductCard key={product.id} product={product} onUpdate = {handleUpdateProduct} onDelete = {handleDelete}/>
       ))}
     </div>
   );
