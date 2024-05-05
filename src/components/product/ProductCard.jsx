@@ -17,7 +17,7 @@ export default function ProductCard({ product,onUpdate, onDelete }){
 
   const handleSave = () => {
     console.log("Edited Product:", editedProduct);
-    fetch(`http://localhost:3001/products/${editedProduct.id}`,{
+    fetch(`https://json-server-data-lbla.onrender.com/products/${editedProduct.id}`,{
       method:'PUT',
       headers:{
         'Content-Type':'application/json'
@@ -34,7 +34,7 @@ export default function ProductCard({ product,onUpdate, onDelete }){
   };
 
   const handleDelete = () => {
-    fetch(`http://localhost:3001/products/${product.id}`,{
+    fetch(`https://json-server-data-lbla.onrender.com/products/${product.id}`,{
       method:'DELETE'
     })
     .then(resp=>{

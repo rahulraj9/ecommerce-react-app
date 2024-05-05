@@ -6,7 +6,7 @@ export default function ProductList(){
   const [products, setProducts] = useState([])
 
   useEffect(()=>{
-    fetch('http://localhost:3001/products')
+    fetch('https://json-server-data-lbla.onrender.com/products')
     .then((res)=>res.json())
     .then((data)=>setProducts(data))
     .catch(error => console.error('Error fetching products:', error));
